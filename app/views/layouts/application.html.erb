@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Bookmarks</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en" ng-app="Bookmarklist">
+  <head>
 
-<%= yield %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Bookmark Manager">
+    <meta name="author" content="Amay">
+    <title>Bookmarks</title>
 
+    <meta content="<%= current_user.to_json %>" name="current_user"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+  </head>
+  <body>
+
+    <header class="navbar navbar-fixed-top" ng-controller="UsersCtrl">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "Bookmarked!", root_path, class: "navbar-brand" %>
+          </div>
+          <div class="container">
+            <div id="navbar" class="navbar-collapse collapse">
+              <div class="control-links" ng-show="authorized()">
+                <a href="/" class="btn btn-default navbar-btn navbar-right" ng-click="logout()">Logout</a>
+              </div>
+              <div class="control-links" ng-show="!authorized()">
+                <a href="/#/login" class="btn btn-default navbar-btn navbar-right">Login</a>
+                <a href="/#/register" class="btn btn-default navbar-btn navbar-right">Registered</a>
+                </div>
+            </div><!--/.navbar-collapse -->
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="col-md-6 col-md-offset-3">
+      <footer>
+        <p class="copyright-footer">&copy; Amay presents Bookmark Manager</p>
+      </footer>
+    </div>
 </body>
 </html>
