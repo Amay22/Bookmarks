@@ -95,6 +95,7 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.0.1)
       ast (~> 2.2)
+    pg (0.18.4)
     phantomjs (1.9.8.0)
     powerpack (0.1.1)
     rack (1.6.4)
@@ -195,6 +196,7 @@ DEPENDENCIES
   jasmine-rails
   jbuilder (~> 2.0)
   jquery-rails
+  pg
   rails (= 4.2.5.1)
   rspec-rails
   rubocop

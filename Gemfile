@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,6 +22,8 @@ gem 'devise', '~> 3.5.6'
 gem 'bower-rails'
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   # Do need testing and what better than rails
   gem 'rspec-rails'
   # AngularJS project so I am gonna put in jasmine too
@@ -34,4 +34,7 @@ group :development, :test do
   gem 'simplecov', require: false
 end
 
-
+group :production do
+  # For Postgres Config
+  gem 'pg'
+end
