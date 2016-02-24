@@ -1,4 +1,4 @@
-# Users Controllers overidding Devise create user methods
+# Users Controllers overriding Devise create user methods
 class UsersController < Devise::RegistrationsController
   skip_before_filter :verify_authenticity_token, only: [:create]
   rescue_from Exception, with: :generic_exception
