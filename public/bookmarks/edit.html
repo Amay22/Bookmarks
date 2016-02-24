@@ -1,0 +1,20 @@
+<form name='editBookmark'>
+  <fieldset>
+    <legend>Edit Bookmark</legend>
+
+    <div class='control-group'>
+      <label class='control-label'>Title</label>
+      <div class='controls'>
+        <input placeholder='Title' class='text_field' name='bookmark[title]' ng-model='bookmark.title' ng-minlength='1' type='text' ></input>
+        <input placeholder='URL' class='text_field' name='bookmark[url]' ng-model='bookmark.url' type='text'></input>
+        <span class='help-inline' ng-show='editBookmark.title.$error.required'>Required</span>
+      </div>
+    </div>
+
+    <div class='form-actions'>
+      <button class='btn btn-success' ng-click='save()' ng-disabled='isClean() || editBookmark.$invalid'>Save</button>
+      <a class='btn' href='/#/bookmarks'>Go Back</a>
+    </div>
+
+  </fieldset>
+</form>

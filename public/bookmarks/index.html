@@ -1,0 +1,22 @@
+<div class='span6'>
+
+  <h1>Bookmarks</h1>
+
+  <form class='form-horizontal' name='newBookmark' ng-submit='save()'>
+    <input placeholder='Title' class='text_field' name='bookmark[title]' ng-minlength='1' ng-model='bookmark.title' type='text'></input>
+    <input placeholder='URL' class='text_field' name='bookmark[url]' ng-model='bookmark.url' type='url'></input>
+    <span class='help-inline' ng-show='newBookmark.title.$error.required'>Required</span>
+    <button class='btn btn-success' ng-disabled='isClean() || newBookmark.$invalid'>Add</button>
+  </form>
+
+  <ul class='Bookmarklist nav' ng-model='Bookmarks'>
+    <li ng-mouseenter='showControls = true' ng-mouseleave='showControls = false' ng-repeat='bookmark in bookmarks'>
+      <a target='_blank' href='{{bookmark.url}}'>{{bookmark.title}}</a><a target='_blank' href='{{bookmark.url}}'>{{bookmark.url}}</a>
+      <span class='controls' ng-show='showControls'>
+        <a class='btn btn-mini glyphicon glyphicon-edit' href='/#/bookmarks/{{bookmark.id}}/edit' title='Edit bookmark'></a>
+        <button class='btn btn-danger btn-mini glyphicon glyphicon-trash' ng-click='destroy()' title='Delete bookmark'></button>
+      </span>
+    </li>
+  </ul>
+
+</div>
