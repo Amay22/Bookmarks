@@ -6,21 +6,27 @@ thisApp.controller 'UsersCtrl', ($scope, $http, $location, $rootScope) ->
 
   $scope.login = ->
     authData = {user: {email: $scope.email, password: $scope.password}}
-    $http(method: 'POST' , url: '/devsie-login', data: authData).success (data) ->
+    $http(method: 'POST' , url: '/devsie-login', data: authData)
+    .success (data) ->
       $rootScope.current_user = data.current_user
       $("meta[name='current_user']").attr('content', JSON.stringify(data))
-      $location.path '/tasks'
+      $location.path '/bookmarks'
+    .error (data) ->
+      alert 'error'
 
   $scope.logout = ->
-    $http(method: 'DELETE', url: '/devsie-logout').success (data) ->
+    $http(method: 'DELETE', url: '/devsie-logout')
+    .success (data) ->
       $rootScope.current_user = null
       $("meta[name='current_user']").attr('content', 'null')
       $location.path '/login'
+    .error (data) ->
+      alert 'error'
 
   $scope.register = ->
     registerData = {user: {name: $scope.name, email: $scope.email, password: $scope.password, password_confirmation: $scope.password}}
-
-    $http.post('/devsie-register', registerData).success (data) ->
-      $rootScope.current_user = data
-      $("meta[name='current_user']").attr('content', JSON.stringify(data))
-      $location.path '/tasks'
+    $http.post('/devsie-register', registerData)
+    .success (data) ->
+      $location.path '/login'
+    .error (data, status) ->
+      alert 'error '+ status
