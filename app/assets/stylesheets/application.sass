@@ -8,5 +8,25 @@ body
 .copyright-footer
   text-align: center
 
-.span12.view
-  padding-top: 50px
+.Bookmarklist
+  width: 320px
+  li
+    margin: 2px
+    position: relative
+    border: 1px solid #e5e5e5
+    .controls
+      position: absolute
+      right: 0
+      top: 0
+    > a
+      margin: 0
+      padding: 5px 5px 5px 35px
+      display: block
+      cursor: move
+    > a:nth-child(2)
+      font-size: 70%
+
+.Bookmarklist span a,
+.Bookmarklist span button
+  margin-top: 4px
+  margin-right: 3px
