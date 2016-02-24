@@ -1,0 +1,6 @@
+## other configuration excluded from example...
+exclude_paths:
+- tests/**/*
+- spec/**/*
+- vendor/**/*
+- lib/assets/bower_components/**/*
