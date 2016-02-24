@@ -20,4 +20,5 @@
 #= require angular-route
 #= require angular-resource
 #= require bootbox
+#= require ./init
 #= require_tree .
