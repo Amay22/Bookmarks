@@ -1,7 +1,7 @@
 root = global ? window
 angular = root.angular
 
-thisApp = angular.module('Bookmarklist', ['ngResource', 'ngRoute'])
+thisApp = angular.module('Bookmarklist', ['ngResource', 'ngRoute', 'bookmarks'])
 
 thisApp.run(($rootScope, $location) ->
   $rootScope.$on('$routeChangeStart', (event, next, current) ->
