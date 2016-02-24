@@ -1,8 +1,6 @@
 # Bookmarks
 
 [![Build Status](https://travis-ci.org/Amay22/Bookmarks.svg?branch=master)](https://travis-ci.org/Amay22/Bookmarks)
-[![Code Climate](https://codeclimate.com/github/Amay22/Bookmarks/badges/gpa.svg)](https://codeclimate.com/github/Amay22/Bookmarks)
-
 
 Bookmark Manager Devise Authentication and AngularJS.
 
