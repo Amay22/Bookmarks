@@ -21,7 +21,6 @@ class BookmarksController < ApplicationController
     end
   end
 
-
   # GET /bookmarks/1.json
   def show
     @bookmark = current_user.bookmarks.where(id: params[:id]).first
@@ -67,7 +66,7 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.save
         format.html { redirect_to @bookmark, notice: 'Task was successfully updated.' }
-        format.json { render json: { bookmark: @bookmark, message: 'Task was successfully updated.'}, status: :ok }
+        format.json { render json: { bookmark: @bookmark, message: 'Task was successfully updated.' }, status: :ok }
       else
         format.html { render action: :edit }
         format.json { render json: @bookmark.errors, status: :unprocessable_entity }
@@ -87,10 +86,9 @@ class BookmarksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_bookmark
-    unless current_user.bookmarks.where(id: params[:id]).first
+    return if current_user.bookmarks.where(id: params[:id]).first
     flash[:alert] = 'Bookmark not found.'
     redirect_to root_url
-    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
