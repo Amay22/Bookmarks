@@ -21,3 +21,7 @@ angular.module('bookmarks', ['ngResource']).factory 'Bookmark', ['$resource', ($
 ]
 
 root.angular = angular
+
+
+
+
